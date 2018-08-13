@@ -19,12 +19,12 @@ void Bot::sendMessage(const id_t &user_id, const string &message, const string &
   map<string, string> params
   {
     {"user_id", to_string(user_id)},
-    {"message", http_client_->encodeUrl(message)}
+    {"message", message}
   };
 
   if (!keyboard.empty())
   {
-    params.insert(pair<string, string>("keyboard", http_client_->encodeUrl(keyboard)));
+    params.insert(pair<string, string>("keyboard", keyboard));
   }
 
   call("messages.send", params);
